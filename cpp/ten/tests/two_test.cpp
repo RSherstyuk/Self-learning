@@ -28,3 +28,12 @@ TEST(reverseStringTest, reverse) {
   EXPECT_EQ(s, "efdsa");
 }
 
+TEST(ThreeSumTest, find) {
+  SolutionTwoPointers sol;
+  std::vector<int> v{-1, 0, 1, 2, -1, 4};
+
+  std::vector<std::vector<int>> result = sol.threeSum(v);
+  std::vector<std::vector<int>> nums = {{-1, -1, 2}, {-1, 0, 1}};
+
+  EXPECT_EQ(result, nums);
+}

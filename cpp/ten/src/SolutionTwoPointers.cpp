@@ -41,3 +41,11 @@ std::vector<int> SolutionTwoPointers::twoSum(std::vector<int> arr, int n) {
 
   return {-1, -1};
 }
+
+std::vector<std::vector<int>> SolutionTwoPointers::threeSum(std::vector<int> arr ){
+  return {
+    {1,2,3},
+    {1,2,3}
+  };
+
+}
