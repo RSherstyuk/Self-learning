@@ -1,0 +1,6 @@
+*.out
+.clangd
+*.mp4
+*.jpg
+main
+build/
