@@ -1,4 +1,5 @@
 #include "SolutionTwoPointers.h"
+#include "SolutionTwoPointersB.h"
 #include <gtest/gtest.h>
 
 TEST(TwoSumTest, FindsPairThatSumsToTarget) {
@@ -33,6 +34,16 @@ TEST(ThreeSumTest, find) {
   std::vector<int> v{-1, 0, 1, 2, -1, 4};
 
   std::vector<std::vector<int>> result = sol.threeSum(v);
+  std::vector<std::vector<int>> nums = {{-1, -1, 2}, {-1, 0, 1}};
+
+  EXPECT_EQ(result, nums);
+}
+
+TEST(ThreeSumTestB, HandlesSpecificCase) {
+  SolutionTwoPointersB sol_B;
+  std::vector<int> v{-1, 0, 1, 2, -1, 4};
+
+  std::vector<std::vector<int>> result = sol_B.threeSum(v);
   std::vector<std::vector<int>> nums = {{-1, -1, 2}, {-1, 0, 1}};
 
   EXPECT_EQ(result, nums);

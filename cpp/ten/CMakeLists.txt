@@ -5,8 +5,9 @@ project(ten LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_library(core STATIC
+add_library(core SHARED
     src/SolutionTwoPointers.cpp
+    src/SolutionTwoPointersB.cpp
 )
 
 target_include_directories(core PUBLIC 

@@ -62,6 +62,7 @@ SolutionTwoPointers::threeSum(std::vector<int> &nums) {
     int j = i + 1;
     int k = n - 1;
     int target = 0 - nums[i];
+
     while (j < k) {
       int current_sum = nums[j] + nums[k];
 
@@ -87,3 +88,4 @@ SolutionTwoPointers::threeSum(std::vector<int> &nums) {
 
   return result;
 }
+

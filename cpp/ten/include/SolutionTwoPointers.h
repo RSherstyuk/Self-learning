@@ -17,7 +17,7 @@ public:
 
   std::vector<int> twoSum(std::vector<int> &arr, int n);
 
-  std::vector<std::vector<int>> threeSum(std::vector<int> &nums); 
+  virtual std::vector<std::vector<int>> threeSum(std::vector<int> &nums); 
 };
 
 #endif
