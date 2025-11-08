@@ -1,5 +1,7 @@
 #include "../include/SolutionTwoPointers.h"
 
+#include <algorithm>
+
 void SolutionTwoPointers::customSwap(char &a, char &b) {
   char temp = a;
   a = b;

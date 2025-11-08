@@ -1,5 +1,7 @@
 #include "SolutionTwoPointersB.h"
 
+#include <algorithm>
+
 std::vector<std::vector<int>>
 SolutionTwoPointersB::threeSum(std::vector<int> &nums) {
 

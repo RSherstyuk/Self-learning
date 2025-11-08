@@ -1,10 +1,8 @@
 #ifndef SOLUTIONTWOPOINTERS_H
 #define SOLUTIONTWOPOINTERS_H
 
-#include <algorithm>
-#include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 class SolutionTwoPointers {
 private:

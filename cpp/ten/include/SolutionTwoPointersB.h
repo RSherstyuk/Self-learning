@@ -1,8 +1,5 @@
 #include "SolutionTwoPointers.h"
 
-#include <algorithm>
-#include <iostream>
-#include <string>
 #include <vector>
 
 
