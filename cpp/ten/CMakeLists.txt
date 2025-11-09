@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_library(core SHARED
     src/SolutionTwoPointers.cpp
     src/SolutionTwoPointersB.cpp
+    src/Date.cpp
 )
 
 target_include_directories(core PUBLIC 
@@ -31,6 +32,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(ten_test 
     tests/two_test.cpp
+    tests/matrix_test.cpp
 )
 
 target_link_libraries(ten_test PRIVATE 
@@ -40,7 +42,6 @@ target_link_libraries(ten_test PRIVATE
 
 target_include_directories(ten_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-
 )
 
 enable_testing()
