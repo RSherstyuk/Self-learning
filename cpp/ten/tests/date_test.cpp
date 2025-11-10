@@ -3,7 +3,7 @@
 #include <iostream>
 
 TEST(DateGetMontTeset, initialization) {
-  Date d(12,2,2026);
+  Date d(12, 2, 2026);
 
   int day = d.GetMonth();
   std::cout << day << "\n";
@@ -12,7 +12,7 @@ TEST(DateGetMontTeset, initialization) {
 }
 
 TEST(DateGetDayTest, initialization) {
-  Date d(12,2,2026);
+  Date d(12, 2, 2026);
 
   int day = d.GetDay();
   std::cout << day << "\n";
@@ -21,11 +21,10 @@ TEST(DateGetDayTest, initialization) {
 }
 
 TEST(DateGetYearTest, initialization) {
-  Date d(12,2,2026);
+  Date d(12, 2, 2026);
 
   int day = d.GetYear();
   std::cout << day << "\n";
 
   EXPECT_EQ(day, 2026);
 }
-
