@@ -33,6 +33,7 @@ FetchContent_MakeAvailable(googletest)
 add_executable(ten_test 
     tests/two_test.cpp
     tests/matrix_test.cpp
+    tests/date_test.cpp
 )
 
 target_link_libraries(ten_test PRIVATE 
