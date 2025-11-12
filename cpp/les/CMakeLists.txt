@@ -9,6 +9,11 @@ add_library(core SHARED
    src/Raii.cpp 
 )
 
+add_library(graph SHARED
+    graph/Graph.h
+    graph/Graph.cpp
+)
+
 target_include_directories(core PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
@@ -17,7 +22,7 @@ add_executable(les
     src/main.cpp
 )
 
-target_link_libraries(les PRIVATE core)
+target_link_libraries(les PRIVATE core graph)
 
 include(FetchContent)
 FetchContent_Declare(
