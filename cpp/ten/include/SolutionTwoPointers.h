@@ -14,6 +14,8 @@ public:
   bool isPalindrome(std::string s);
 
   std::vector<int> twoSum(std::vector<int> &arr, int n);
+  
+  std::vector<int> sortedSquares(std::vector<int> nums);
 
   virtual std::vector<std::vector<int>> threeSum(std::vector<int> &nums); 
 };
