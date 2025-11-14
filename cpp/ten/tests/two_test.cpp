@@ -48,3 +48,13 @@ TEST(ThreeSumTestB, HandlesSpecificCase) {
 
   EXPECT_EQ(result, nums);
 }
+
+TEST(SquareTwoPointers, sortTrue) {
+  SolutionTwoPointers sol;
+  std::vector<int> v{-4, -1, 0, 3, 10};
+
+  std::vector<int> res = sol.sortedSquares(v);
+  std::vector<int> true_res {0, 1, 9, 16, 100};
+
+  EXPECT_EQ(res, true_res);
+}
