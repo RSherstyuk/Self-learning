@@ -5,8 +5,15 @@ project(les LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
+
 add_library(core SHARED
    src/Raii.cpp 
+)
+
+add_library(sorts
+   sorts/SortingAlgorithms.h
+   sorts/SortingAlgorithms.cpp
 )
 
 add_library(graph SHARED
@@ -22,7 +29,11 @@ add_executable(les
     src/main.cpp
 )
 
-target_link_libraries(les PRIVATE core graph)
+target_link_libraries(core PUBLIC Qt::Core)
+
+target_link_libraries(graph PUBLIC Qt::Core)
+
+target_link_libraries(les PRIVATE core graph sorts)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -37,9 +48,11 @@ add_executable(les_test
     tests/test.cpp
 )
 
-target_link_libraries(les_test PRIVATE 
+target_link_libraries(les_test PUBLIC 
     gtest_main 
     core
+    sorts
+    Qt::Widgets
 )
 
 target_include_directories(les_test PRIVATE

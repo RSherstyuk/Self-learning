@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include <iostream>
 #include <memory>
+#include <queue>
 #include <vector>
 
 using namespace std;
@@ -14,34 +15,60 @@ public:
   int value;
 };
 
+struct Graph {
+  std::vector<std::vector<int>> adj;
+  int V;
+
+  void addEdge(int u, int v) {
+    if (u >= 0 && u < V && v >= 0 && v < V) {
+      adj[u].push_back(v);
+    };
+  }
+
+  vector<int> top_sotr() {
+    vector<int> inDegree(V, 0);
+    vector<int> result;
+
+    for (int i = 0; i < V; i++) {
+      for (int nei : adj[i]) {
+        inDegree[nei]++;
+      }
+    }
+
+    std::queue<int> q;
+
+    for (int i = 0; i < V; i++) {
+      if (inDegree[i] == 0) {
+        q.push(i);
+      }
+    }
+
+    int count = 0;
+    while (!q.empty()) {
+      int u = q.front();
+      q.pop();
+      result.push_back(u);
+
+      for (int v : adj[u]) {
+        inDegree[v]--;
+        if (inDegree[v] == 0) {
+          q.push(v);
+        }
+      }
+
+      count++;
+    }
+
+    if (count != V) {
+      std::cout << "Graph has a cycle" << std::endl;
+      return {};
+    }
+
+    return result;
+  }
+};
+
 int main() {
-  // std::vector<std::unique_ptr<Shape>> shapes;
-  //
-  // shapes.push_back(std::make_unique<Circle>(10));
-  // shapes.push_back(std::make_unique<Sphere>(5));
-  // shapes.push_back(std::make_unique<Circle>(7));
-  //
-  // std::cout << "--- Расчет площадей фигур (полиморфизм) ---\n";
-  //
-  // for (size_t i = 0; i < shapes.size(); ++i) {
-  //   std::cout << i + 1 << ". Площадь фигуры (радиус " << shapes[i]->getR()
-  //             << "): " << shapes[i]->getSquare() << std::endl;
-  // }
-  //
-  // std::cout << "\n--- Память автоматически освобождена std::unique_ptr
-  // ---\n";
-
-  // auto p1 = std::make_shared<std::vector<int>>();
-  // auto p2 = p1;
-  //
-  // *p1 = {1, 2, 3, 5, 67};
-  //
-  // for (auto i : *p1) {
-  //   std::cout << i << " ";
-  // }
-  //
-  // std::cout << p1 << " " << &p1;
-
   auto p = std::make_shared<Data>(21);
 
   auto p2 = p;
