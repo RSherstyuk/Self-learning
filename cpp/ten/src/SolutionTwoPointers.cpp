@@ -46,70 +46,66 @@ std::vector<int> SolutionTwoPointers::twoSum(std::vector<int> &arr, int n) {
 
 std::vector<std::vector<int>>
 SolutionTwoPointers::threeSum(std::vector<int> &nums) {
+  sort(nums.begin(), nums.end());
+
   std::vector<std::vector<int>> result;
   int n = nums.size();
 
-  std::sort(nums.begin(), nums.end());
+  for (int i = 0; i < n; i++) {
 
-  for (int i = 0; i < n - 2; ++i) {
-
-    if (i > 0 && nums[i] == nums[i - 1]) {
+    if (i > 0 && nums[i] == nums[i - 1])
       continue;
-    }
 
-    if (nums[i] > 0) {
-      break;
-    }
+    int target = -nums[i];
+    int left = i + 1;
+    int right = n - 1;
 
-    int j = i + 1;
-    int k = n - 1;
-    int target = 0 - nums[i];
-
-    while (j < k) {
-      int current_sum = nums[j] + nums[k];
+    while (left < right) {
+      int current_sum = nums[left] + nums[right];
 
       if (current_sum == target) {
-        result.push_back({nums[i], nums[j], nums[k]});
+        result.push_back({nums[i], nums[left], nums[right]});
 
-        while (j < k && nums[j] == nums[j + 1]) {
-          j++;
-        }
-        while (j < k && nums[k] == nums[k - 1]) {
-          k--;
-        }
+        // Пропуск дубликатов
+        while (left < right && nums[left] == nums[left + 1])
+          left++;
+        while (left < right && nums[right] == nums[right - 1])
+          right--;
 
-        j++;
-        k--;
-      } else if (current_sum < target) {
-        j++;
+        left++;
+        right--;
+      }
+
+      else if (current_sum > target) {
+
+        right--;
       } else {
-        k--;
+        left++;
       }
     }
   }
-
   return result;
 }
 
 std::vector<int> SolutionTwoPointers::sortedSquares(std::vector<int> nums) {
-    int n = nums.size();
-    std::vector<int> result(n);
-    int left = 0, right = n - 1;
-    int pos = n - 1; 
-    while (left <= right) {
-      int leftSquare = nums[left] * nums[left];
-      int rightSquare = nums[right] * nums[right];
+  int n = nums.size();
+  std::vector<int> result(n);
+  int left = 0, right = n - 1;
+  int pos = n - 1;
+  while (left <= right) {
+    int leftSquare = nums[left] * nums[left];
+    int rightSquare = nums[right] * nums[right];
 
-      if (leftSquare > rightSquare) {
-        result[pos] = leftSquare;
-        left++;
-      } else {
+    if (leftSquare > rightSquare) {
+      result[pos] = leftSquare;
+      left++;
+    } else {
 
-        result[pos] = rightSquare;
-        right--;
-      }
-      pos--;
+      result[pos] = rightSquare;
+      right--;
     }
-
-    return result;
+    pos--;
   }
+
+  return result;
+}

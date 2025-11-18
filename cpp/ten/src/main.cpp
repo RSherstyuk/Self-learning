@@ -1,9 +1,9 @@
-#include "SolutionTwoPointers.h"
+#include <algorithm>
+#include <iostream>
 #include <vector>
 
-int main() {
-  SolutionTwoPointers solver;
+using namespace std;
 
-  std::vector<int> numbers = {3, 5, 2, 8, 11, 7};
-  int target_sum = 10;
+int main() {
+  return 0;
 }
