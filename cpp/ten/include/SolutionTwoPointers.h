@@ -18,6 +18,8 @@ public:
   std::vector<int> sortedSquares(std::vector<int> nums);
 
   virtual std::vector<std::vector<int>> threeSum(std::vector<int> &nums); 
+
+  std::vector<std::vector<int>> fSum(std::vector<int> &nums, int target);
 };
 
 #endif

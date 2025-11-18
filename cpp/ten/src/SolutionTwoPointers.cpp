@@ -109,3 +109,55 @@ std::vector<int> SolutionTwoPointers::sortedSquares(std::vector<int> nums) {
 
   return result;
 }
+
+std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, int target){
+  std::vector<std::vector<int>> result;
+  int n = nums.size();
+
+  if (n < 4)
+    return result;
+
+  sort(nums.begin(), nums.end());
+
+  for (int i = 0; i < n - 3; ++i) {
+    if (i > 0 && nums[i] == nums[i - 1])
+      continue;
+
+
+    for (int j = i + 1; j < n - 2; ++j) {
+      if (j > i + 1 && nums[j] == nums[j - 1])
+        continue;
+
+      long long target_2 = (long long)target - nums[i] - nums[j];
+
+      int l = j + 1;
+      int r = n - 1;
+
+
+      while (l < r) {
+        long long cur_sum_2 = (long long)nums[l] + nums[r];
+
+        if (cur_sum_2 == target_2) {
+          result.push_back({nums[i], nums[j], nums[l], nums[r]});
+
+
+          while (l < r && nums[l] == nums[l + 1])
+            l++;
+          while (l < r && nums[r] == nums[r - 1])
+            r--;
+
+          l++;
+          r--;
+        } else if (cur_sum_2 < target_2) {
+          l++;
+        } else {
+          r--;
+        }
+
+      }
+    }
+  }
+
+  return result;
+
+}
