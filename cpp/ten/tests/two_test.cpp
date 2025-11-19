@@ -58,3 +58,13 @@ TEST(SquareTwoPointers, sortTrue) {
 
   EXPECT_EQ(res, true_res);
 }
+
+TEST(SquareTwoPointers, fSum) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {-1, 0, -1, 0, -2, 2};
+
+  std::vector<std::vector<int>> result = sol.fSum(v, 0);
+  std::vector<std::vector<int>> true_res {{-2, 0, 0, 2}, {-1, -1, 0, 2} };
+
+  EXPECT_EQ(result, true_res);
+}
