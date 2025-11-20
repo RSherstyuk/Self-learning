@@ -191,3 +191,7 @@ int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) {
   }
   return k;
 }
+
+void SolutionTwoPointers::moveZeroes(std::vector<int> &nums) {
+
+}

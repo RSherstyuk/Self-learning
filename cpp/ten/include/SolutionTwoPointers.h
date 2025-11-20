@@ -23,7 +23,9 @@ public:
 
   int maxArea(std::vector<int> &nums);
 
-  int removeDuplicates(std::vector<int> &nums);
+  int removeDuplicates(std::vector<int> &nums); //26
+
+  void moveZeroes(std::vector<int> &nums);
 };
 
 #endif

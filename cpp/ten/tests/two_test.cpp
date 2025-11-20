@@ -88,3 +88,15 @@ TEST(removeDupicatesFormSortedArray, removeDuplicates) {
 
   EXPECT_EQ(result, true_res);
 }
+
+TEST(moveAllZeroes, moveZeroes) {
+
+  SolutionTwoPointers sol;
+
+  std::vector<int> v = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+
+  sol.moveZeroes(v);
+  std::vector<int> true_res = {};
+
+  EXPECT_EQ(v, true_res);
+}
