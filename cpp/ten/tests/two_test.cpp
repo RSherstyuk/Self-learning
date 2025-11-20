@@ -93,10 +93,10 @@ TEST(moveAllZeroes, moveZeroes) {
 
   SolutionTwoPointers sol;
 
-  std::vector<int> v = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+  std::vector<int> v = {0, 1, 0, 3, 12};
 
   sol.moveZeroes(v);
-  std::vector<int> true_res = {};
+  std::vector<int> true_res = {1, 3, 12, 0, 0};
 
   EXPECT_EQ(v, true_res);
 }
