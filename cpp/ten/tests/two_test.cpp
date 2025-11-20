@@ -68,3 +68,13 @@ TEST(SquareTwoPointers, fSum) {
 
   EXPECT_EQ(result, true_res);
 }
+
+TEST(maxAreaPointers, maxArea) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+
+  int result = sol.maxArea(v);
+  int true_res = 49;
+  EXPECT_EQ(result, true_res);
+}
+
