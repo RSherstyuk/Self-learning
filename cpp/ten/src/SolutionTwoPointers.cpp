@@ -161,3 +161,22 @@ std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, 
   return result;
 
 }
+
+int SolutionTwoPointers::maxArea(std::vector<int> nums) {
+  int n = nums.size();
+  int l = 0;
+  int r = n - 1;
+
+  int result = 0;
+
+  while(l <= r) {
+    int width = r - l;
+
+    result = std::max(result, width * std::min(nums[l], nums[r]));
+
+    if (nums[l] < nums[r]) l++;
+    else r--;
+  }
+
+  return result;
+}
