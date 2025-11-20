@@ -193,5 +193,13 @@ int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) {
 }
 
 void SolutionTwoPointers::moveZeroes(std::vector<int> &nums) {
+  int n = nums.size();
 
+  int left = 0;
+  for (int i = 0; i < n; i++) {
+    if (nums[i] != 0) {
+      std::swap(nums[left], nums[i]);
+      left++;
+    }
+  }
 }
