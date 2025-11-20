@@ -179,4 +179,15 @@ int SolutionTwoPointers::maxArea(std::vector<int> &nums) {
   return result;
 }
 
-int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) { return 0; }
+int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) {
+  int k = 0;
+
+  for (int i = 0; i <= nums.size(); ++i) {
+
+    if (nums[k] != nums[i]) {
+      k++;
+      nums[k] = nums[i];
+    }
+  }
+  return k;
+}
