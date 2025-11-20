@@ -18,7 +18,7 @@ void SolutionTwoPointers::reverseString(std::string &s) {
   }
 }
 
-bool SolutionTwoPointers::isPalindrome(std::string s) {
+bool SolutionTwoPointers::isPalindrome(std::string &s) {
   std::string original_s = s;
   reverseString(s);
   return (s == original_s);
@@ -87,7 +87,7 @@ SolutionTwoPointers::threeSum(std::vector<int> &nums) {
   return result;
 }
 
-std::vector<int> SolutionTwoPointers::sortedSquares(std::vector<int> nums) {
+std::vector<int> SolutionTwoPointers::sortedSquares(std::vector<int> &nums) {
   int n = nums.size();
   std::vector<int> result(n);
   int left = 0, right = n - 1;
@@ -162,7 +162,7 @@ std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, 
 
 }
 
-int SolutionTwoPointers::maxArea(std::vector<int> nums) {
+int SolutionTwoPointers::maxArea(std::vector<int> &nums) {
   int n = nums.size();
   int l = 0;
   int r = n - 1;
@@ -179,4 +179,8 @@ int SolutionTwoPointers::maxArea(std::vector<int> nums) {
   }
 
   return result;
+}
+
+int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) {
+  return 0;
 }

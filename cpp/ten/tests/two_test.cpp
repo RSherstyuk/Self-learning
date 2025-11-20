@@ -54,7 +54,7 @@ TEST(SquareTwoPointers, sortTrue) {
   std::vector<int> v{-4, -1, 0, 3, 10};
 
   std::vector<int> res = sol.sortedSquares(v);
-  std::vector<int> true_res {0, 1, 9, 16, 100};
+  std::vector<int> true_res{0, 1, 9, 16, 100};
 
   EXPECT_EQ(res, true_res);
 }
@@ -64,7 +64,7 @@ TEST(SquareTwoPointers, fSum) {
   std::vector<int> v = {-1, 0, -1, 0, -2, 2};
 
   std::vector<std::vector<int>> result = sol.fSum(v, 0);
-  std::vector<std::vector<int>> true_res {{-2, 0, 0, 2}, {-1, -1, 0, 2} };
+  std::vector<std::vector<int>> true_res{{-2, 0, 0, 2}, {-1, -1, 0, 2}};
 
   EXPECT_EQ(result, true_res);
 }
@@ -75,6 +75,16 @@ TEST(maxAreaPointers, maxArea) {
 
   int result = sol.maxArea(v);
   int true_res = 49;
+
   EXPECT_EQ(result, true_res);
 }
 
+TEST(removeDupicatesFormSortedArray, removeDuplicates) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+
+  int result = sol.removeDuplicates(v);
+  int true_res = 5;
+
+  EXPECT_EQ(result, true_res);
+}
