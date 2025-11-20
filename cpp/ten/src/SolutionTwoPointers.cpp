@@ -110,7 +110,8 @@ std::vector<int> SolutionTwoPointers::sortedSquares(std::vector<int> &nums) {
   return result;
 }
 
-std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, int target){
+std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums,
+                                                        int target) {
   std::vector<std::vector<int>> result;
   int n = nums.size();
 
@@ -123,7 +124,6 @@ std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, 
     if (i > 0 && nums[i] == nums[i - 1])
       continue;
 
-
     for (int j = i + 1; j < n - 2; ++j) {
       if (j > i + 1 && nums[j] == nums[j - 1])
         continue;
@@ -133,13 +133,11 @@ std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, 
       int l = j + 1;
       int r = n - 1;
 
-
       while (l < r) {
         long long cur_sum_2 = (long long)nums[l] + nums[r];
 
         if (cur_sum_2 == target_2) {
           result.push_back({nums[i], nums[j], nums[l], nums[r]});
-
 
           while (l < r && nums[l] == nums[l + 1])
             l++;
@@ -153,13 +151,11 @@ std::vector<std::vector<int>> SolutionTwoPointers::fSum(std::vector<int> &nums, 
         } else {
           r--;
         }
-
       }
     }
   }
 
   return result;
-
 }
 
 int SolutionTwoPointers::maxArea(std::vector<int> &nums) {
@@ -169,18 +165,18 @@ int SolutionTwoPointers::maxArea(std::vector<int> &nums) {
 
   int result = 0;
 
-  while(l <= r) {
+  while (l <= r) {
     int width = r - l;
 
     result = std::max(result, width * std::min(nums[l], nums[r]));
 
-    if (nums[l] < nums[r]) l++;
-    else r--;
+    if (nums[l] < nums[r])
+      l++;
+    else
+      r--;
   }
 
   return result;
 }
 
-int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) {
-  return 0;
-}
+int SolutionTwoPointers::removeDuplicates(std::vector<int> &nums) { return 0; }
