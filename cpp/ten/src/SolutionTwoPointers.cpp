@@ -219,3 +219,5 @@ bool SolutionTwoPointers::isSubseq(std::string &s, std::string &t) {
 
   return i == n;
 }
+
+bool SolutionTwoPointers::backspaceCompare(std::string &s, std::string &t) {}

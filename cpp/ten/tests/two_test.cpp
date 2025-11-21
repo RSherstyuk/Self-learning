@@ -109,6 +109,18 @@ TEST(isSubseq, isSubSeq) {
   std::string t = "ahbgdc";
 
   bool res = sol.isSubseq(s, t);
-  
+
+  EXPECT_EQ(res, true);
+}
+
+TEST(backSpace, compareBackspace) {
+
+  SolutionTwoPointers sol;
+
+  std::string s = "ab#c";
+  std::string t = "ad#c";
+
+  bool res = sol.isSubseq(s, t);
+
   EXPECT_EQ(res, true);
 }
