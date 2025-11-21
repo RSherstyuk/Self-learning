@@ -3,4 +3,6 @@
 #include <vector>
 
 class SlidingWindow {
+public:
+
 };
