@@ -1,4 +1,4 @@
-#include "../include/SolutionTwoPointers.h"
+#include "SolutionTwoPointers.h"
 
 #include <algorithm>
 
@@ -260,11 +260,11 @@ bool SolutionTwoPointers::backspaceCompare(std::string &s, std::string &t) {
   return true;
 }
 
-void SolutionTwoPointers::merge(std::vector<int> nums1, int m,
-                                std::vector<int> nums2, int n) {
+void SolutionTwoPointers::merge(std::vector<int> &nums1, int m,
+                                std::vector<int> &nums2, int n) {
 
   int p1 = m - 1;
-  int p2 = n - 2;
+  int p2 = n - 1;
 
   int result = m + n - 1;
 
@@ -286,8 +286,8 @@ void SolutionTwoPointers::merge(std::vector<int> nums1, int m,
   }
 }
 
-void SolutionTwoPointers::mergeWith(std::vector<int> nums1, int m,
-                                    std::vector<int> nums2, int n) {
+void SolutionTwoPointers::mergeWith(std::vector<int> &nums1, int m,
+                                    std::vector<int> &nums2, int n) {
   int p1 = 0;
   int p2 = 0;
 

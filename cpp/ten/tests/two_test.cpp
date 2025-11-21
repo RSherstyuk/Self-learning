@@ -139,3 +139,20 @@ TEST(MergeTest, BasicMergeCase) {
   ASSERT_EQ(nums1, expected) << "Слияние не дало ожидаемого результата. nums1 "
                                 "должно быть: [1, 2, 2, 3, 5, 6]";
 }
+
+TEST(MergeTestWith, BasicMergeCase) {
+  std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
+
+  int m = 3;
+  std::vector<int> nums2 = {2, 5, 6};
+  int n = 3;
+
+  std::vector<int> expected = {1, 2, 2, 3, 5, 6};
+
+  SolutionTwoPointers sol;
+
+  sol.mergeWith(nums1, m, nums2, n);
+  ASSERT_EQ(nums1, expected) << "Слияние не дало ожидаемого результата. nums1 "
+                                "должно быть: [1, 2, 2, 3, 5, 6]";
+}
+

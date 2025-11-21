@@ -31,9 +31,9 @@ public:
 
   bool backspaceCompare(std::string &s, std::string &t);
 
-  void merge(std::vector<int> nums1, int m, std::vector<int> nums2, int n);
+  void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n);
 
-  void mergeWith(std::vector<int> nums1, int m, std::vector<int> nums2, int n);
+  void mergeWith(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n);
 };
 
 #endif
