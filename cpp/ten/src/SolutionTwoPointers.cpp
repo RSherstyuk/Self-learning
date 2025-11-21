@@ -259,3 +259,61 @@ bool SolutionTwoPointers::backspaceCompare(std::string &s, std::string &t) {
   }
   return true;
 }
+
+void SolutionTwoPointers::merge(std::vector<int> nums1, int m,
+                                std::vector<int> nums2, int n) {
+
+  int p1 = m - 1;
+  int p2 = n - 2;
+
+  int result = m + n - 1;
+
+  while (p1 >= 0 && p2 >= 0) {
+    if (nums1[p1] > nums2[p2]) {
+      nums1[result] = nums1[p1];
+      p1--;
+    } else {
+      nums1[result] = nums2[p2];
+      p2--;
+    }
+    result--;
+  }
+
+  while (p2 >= 0) {
+    nums1[result] = nums2[p2];
+    p2--;
+    result--;
+  }
+}
+
+void SolutionTwoPointers::mergeWith(std::vector<int> nums1, int m,
+                                    std::vector<int> nums2, int n) {
+  int p1 = 0;
+  int p2 = 0;
+
+  std::vector<int> res;
+
+  while (p1 < m && p2 < n) {
+    if (nums1[p1] < nums2[p2]) {
+
+      res.push_back(nums1[p1]);
+      p1++;
+    } else {
+      res.push_back(nums2[p2]);
+      p2++;
+    }
+  }
+
+  for (int k = p1; k < m; ++k) {
+    res.push_back(nums1[k]);
+  }
+
+  for (int k = p2; k < n; ++k) {
+
+    res.push_back(nums2[k]);
+  }
+
+  for (int i = 0; i < res.size(); ++i) {
+    nums1[i] = res[i];
+  }
+}
