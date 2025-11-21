@@ -53,7 +53,7 @@ add_executable(ten_test
     tests/two_test.cpp
     tests/matrix_test.cpp
     tests/date_test.cpp
-    tests/sliding_window.cpp
+    tests/sliding_window_test.cpp
 )
 
 target_link_libraries(ten_test PRIVATE 
