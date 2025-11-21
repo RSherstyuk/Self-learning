@@ -120,7 +120,7 @@ TEST(backSpace, compareBackspace) {
   std::string s = "ab#c";
   std::string t = "ad#c";
 
-  bool res = sol.isSubseq(s, t);
+  bool res = sol.backspaceCompare(s, t);
 
   EXPECT_EQ(res, true);
 }
