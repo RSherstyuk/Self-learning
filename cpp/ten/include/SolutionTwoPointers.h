@@ -26,6 +26,8 @@ public:
   int removeDuplicates(std::vector<int> &nums); //26
 
   void moveZeroes(std::vector<int> &nums);
+
+  bool isSubseq(std::string &s, std::string &t);
 };
 
 #endif

@@ -100,3 +100,15 @@ TEST(moveAllZeroes, moveZeroes) {
 
   EXPECT_EQ(v, true_res);
 }
+
+TEST(isSubseq, isSubSeq) {
+
+  SolutionTwoPointers sol;
+
+  std::string s = "abc";
+  std::string t = "ahbgdc";
+
+  bool res = sol.isSubseq(s, t);
+  
+  EXPECT_EQ(res, true);
+}

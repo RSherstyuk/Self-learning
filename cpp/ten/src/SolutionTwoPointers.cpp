@@ -203,3 +203,7 @@ void SolutionTwoPointers::moveZeroes(std::vector<int> &nums) {
     }
   }
 }
+
+bool SolutionTwoPointers::isSubseq(std::string &s, std::string &t) {
+    
+}
