@@ -205,5 +205,17 @@ void SolutionTwoPointers::moveZeroes(std::vector<int> &nums) {
 }
 
 bool SolutionTwoPointers::isSubseq(std::string &s, std::string &t) {
-    
+  int i = 0;
+  int j = 0;
+  int m = t.length();
+  int n = s.length();
+
+  while (i < n && j < m) {
+    if (s[i] == t[j]) {
+      i++;
+    }
+    j++;
+  }
+
+  return i == n;
 }
