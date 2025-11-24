@@ -25,11 +25,22 @@ TEST(MaxAverageSubArrayTen, findMaxAverageTen) {
 
 TEST(MinSubArrayLen, minLenSubArray) {
   SlidingWindow sol;
-  std::vector<int> v{2,3,1,2,4,3};
+  std::vector<int> v{2, 3, 1, 2, 4, 3};
   int target = 7;
 
   double result = sol.minSubArrayLen(target, v);
   double expected = 2;
+
+  ASSERT_EQ(result, expected);
+}
+
+TEST(MinSubArrayLenTwo, minLenSubArray) {
+  SlidingWindow sol;
+  std::vector<int> v{1, 1, 1, 1, 1, 1, 1, 1};
+  int target = 11;
+
+  double result = sol.minSubArrayLen(target, v);
+  double expected = 0;
 
   ASSERT_EQ(result, expected);
 }

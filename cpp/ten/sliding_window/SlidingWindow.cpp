@@ -42,4 +42,23 @@ double SlidingWindow::findMaxAverageTen(std::vector<int> &nums, int k) {
 }
 
 int SlidingWindow::minSubArrayLen(int target, std::vector<int> &nums) {
+  int n = nums.size();
+  int begin = 0;
+  int win_state = 0;
+  int result = std::numeric_limits<int>::max();
+
+  for (int end = 0; end < n; ++end) {
+    win_state += nums[end];
+
+    while ( win_state >= target ) {
+      int win_size = end - begin + 1;
+      result = std::min(result, win_size);
+      win_state -= nums[begin];
+      begin += 1;
+    }
+  }
+
+  if (result == std::numeric_limits<int>::max()) return 0;
+
+  return result;
 }

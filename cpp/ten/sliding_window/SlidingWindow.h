@@ -9,6 +9,6 @@ public:
 
   double findMaxAverageTen(std::vector<int> &nums, int k); //643
 
-  int minSubArrayLen(int target, std::vector<int> &nums);
+  int minSubArrayLen(int target, std::vector<int> &nums); //209
 
 };
