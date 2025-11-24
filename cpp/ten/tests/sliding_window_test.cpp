@@ -3,7 +3,7 @@
 
 TEST(MaxAverageSubArray, findMaxAverage) {
   SlidingWindow sol;
-  std::vector<int> v{1,12,-5,-6,50,3};
+  std::vector<int> v{1, 12, -5, -6, 50, 3};
   int k = 4;
 
   double result = sol.findMaxAverage(v, k);
@@ -11,3 +11,16 @@ TEST(MaxAverageSubArray, findMaxAverage) {
 
   ASSERT_EQ(result, expected);
 }
+
+TEST(MaxAverageSubArrayTen, findMaxAverageTen) {
+  SlidingWindow sol;
+  std::vector<int> v{1, 12, -5, -6, 50, 3};
+  int k = 4;
+
+  double result = sol.findMaxAverageTen(v, k);
+  double expected = 12.75000;
+
+
+  ASSERT_EQ(result, expected);
+}
+
