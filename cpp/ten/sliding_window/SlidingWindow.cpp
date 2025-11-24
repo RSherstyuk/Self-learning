@@ -1,4 +1,5 @@
 #include "SlidingWindow.h"
+#include <cmath>
 
 double SlidingWindow::findMaxAverage(std::vector<int> nums, int k) {
   int n = nums.size();
@@ -19,4 +20,23 @@ double SlidingWindow::findMaxAverage(std::vector<int> nums, int k) {
   }
 
   return max_sum;
+}
+
+double SlidingWindow::findMaxAverageTen(std::vector<int> nums, int k) {
+  int n = nums.size();
+  int begin = 0;
+  double window_state = 0;
+  double result = -std::numeric_limits<double>::infinity();
+
+  for (int end = 0; end < n; ++end) {
+    window_state += nums[end];
+    
+    if (end - begin + 1 == k) {
+      result = std::max(result, window_state);
+      window_state -= nums[begin];
+      begin += 1;
+    }
+  }
+
+  return result / k;
 }
