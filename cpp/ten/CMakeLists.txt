@@ -5,6 +5,8 @@ project(ten LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_library(two_pointers SHARED
     two_pointers/SolutionTwoPointers.cpp
     two_pointers/SolutionTwoPointersB.cpp
