@@ -7,6 +7,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+add_library(linked_list SHARED
+    linked_list/linked_list.cpp
+)
+
+target_include_directories(linked_list PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/linked_list
+)
+
 add_library(two_pointers SHARED
     two_pointers/SolutionTwoPointers.cpp
     two_pointers/SolutionTwoPointersB.cpp
@@ -56,6 +64,7 @@ add_executable(ten_test
     tests/matrix_test.cpp
     tests/date_test.cpp
     tests/sliding_window_test.cpp
+    tests/linked_list_test.cpp
 )
 
 target_link_libraries(ten_test PRIVATE 
@@ -63,12 +72,14 @@ target_link_libraries(ten_test PRIVATE
     core
     two_pointers
     sliding_window
+    linked_list
 )
 
 target_include_directories(ten_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/two_pointers
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/sliding_window
+    ${CMAKE_CURRENT_SOURCE_DIR}/linked_list
 )
 
 enable_testing()
@@ -86,3 +97,4 @@ target_compile_options(ten_test PRIVATE
 target_compile_options(core PRIVATE $<$<CONFIG:Debug>:-g -O0>)
 target_compile_options(two_pointers PRIVATE $<$<CONFIG:Debug>:-g -O0>)
 target_compile_options(sliding_window PRIVATE $<$<CONFIG:Debug>:-g -O0>)
+target_compile_options(linked_list PRIVATE $<$<CONFIG:Debug>:-g -O0>)
