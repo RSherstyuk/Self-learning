@@ -1,4 +1,5 @@
 #include "linked_list.h"
+#include <iostream>
 
 void List::push(int val) {
   Node *new_node = new Node(val);
