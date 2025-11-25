@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include <algo.h>
+#include <gtest/gtest.h>
 
 TEST(TestFindUniqEl, testUniq) {
   Algo sol;
