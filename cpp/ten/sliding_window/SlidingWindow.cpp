@@ -62,3 +62,6 @@ int SlidingWindow::minSubArrayLen(int target, std::vector<int> &nums) {
 
   return result;
 }
+
+int SlidingWindow::longestOnes(std::vector<int> &nums, int k) {
+}

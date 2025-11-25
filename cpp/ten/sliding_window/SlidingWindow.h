@@ -11,4 +11,6 @@ public:
 
   int minSubArrayLen(int target, std::vector<int> &nums); //209
 
+  int longestOnes(std::vector<int> &nums, int k); //1004
+
 };

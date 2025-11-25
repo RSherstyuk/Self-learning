@@ -34,4 +34,33 @@ void merge(vector<int> nums1, int m, vector<int> nums2, int n) {
   }
 }
 
-int main() {}
+int main() {
+  std::vector<int> vv{1, 2, 3, 4, 3, 2, 1};
+  std::vector<int> v{1, 23, 4, 5, 6, 2, 1};
+
+  auto add_vectors = [&]() -> std::vector<int> {
+    if (v.size() != vv.size()) {
+      return {};
+    }
+    std::vector<int> res(v.size());
+
+    for (size_t i = 0; i < v.size(); ++i) {
+      res[i] = v[i] + vv[i];
+    }
+
+    return res;
+  };
+
+  auto print_vec = [](const std::vector<int> &vec) {
+    std::cout << "{";
+    for (size_t i = 0; i < vec.size(); ++i) {
+      std::cout << vec[i];
+      if (i < vec.size() - 1) {
+        std::cout << ", ";
+      }
+    }
+    std::cout << "}" << std::endl;
+  };
+
+  add_vectors();
+}

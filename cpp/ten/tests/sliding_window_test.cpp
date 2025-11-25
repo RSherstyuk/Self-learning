@@ -44,3 +44,16 @@ TEST(MinSubArrayLenTwo, minLenSubArray) {
 
   ASSERT_EQ(result, expected);
 }
+
+TEST(TestLongesOnes, longestOnes) {
+
+  SlidingWindow sol;
+
+  std::vector<int> v{1,1,1,0,0,0,1,1,1,1,0};
+  int k = 2;
+
+  double result = sol.longestOnes(v, k);
+  double expected = 6;
+
+  ASSERT_EQ(result, expected);
+}
