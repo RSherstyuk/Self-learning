@@ -27,4 +27,6 @@ public:
   void insert_at(int index, int val);
 
   void remove_at(int index);
+
+  void pop_front();
 };

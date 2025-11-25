@@ -19,6 +19,7 @@ List::~List() {
     current = next_node;
   }
   head = nullptr;
+  count = 0;
 }
 
 void List::print() {
@@ -98,5 +99,18 @@ void List::remove_at(int index) {
 
   prev->next = nullptr;
   delete current;
+  count--;
+}
+
+void List::pop_front() {
+  if (head == nullptr) {
+    std::cout << "Error" << "\n";
+    return;
+  }
+
+  Node *tmp = head;
+  head = head->next;
+
+  delete tmp;
   count--;
 }

@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include "linked_list.h"
+#include <gtest/gtest.h>
 
 TEST(ListTest, test) {
   List ls;
@@ -15,11 +15,15 @@ TEST(ListTest, test) {
 
   ls.print();
 
-  ls.insert_at(2,88);
+  ls.insert_at(2, 88);
 
   ls.print();
 
   ls.remove_at(2);
+
+  ls.print();
+
+  ls.pop_front();
 
   ls.print();
 }
