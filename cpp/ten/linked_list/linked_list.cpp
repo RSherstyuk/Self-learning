@@ -31,7 +31,7 @@ void List::print() {
   std::cout << "nullptr" << std::endl;
 }
 
-void List::delete_back() {
+void List::remove_last() {
   if (head == nullptr) {
     std::cout << "Err" << "\n";
     return;
@@ -76,4 +76,27 @@ void List::insert_at(int index, int val) {
   new_node->next = current->next;
   current->next = new_node;
   count++;
+}
+
+void List::remove_at(int index) {
+  if (index < 0 || index > count) {
+    throw std::out_of_range("Nothih thindex");
+  }
+
+  if (index == 0) {
+    remove_last();
+    return;
+  }
+
+  Node *current = head;
+  Node *prev = nullptr;
+
+  while (current->next != nullptr) {
+    prev = current;
+    current = current->next;
+  }
+
+  prev->next = nullptr;
+  delete current;
+  count--;
 }

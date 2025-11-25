@@ -11,7 +11,7 @@ TEST(ListTest, test) {
 
   ls.print();
 
-  ls.delete_back();
+  ls.remove_last();
 
   ls.print();
 
@@ -19,4 +19,7 @@ TEST(ListTest, test) {
 
   ls.print();
 
+  ls.remove_at(2);
+
+  ls.print();
 }

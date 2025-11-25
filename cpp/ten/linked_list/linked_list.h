@@ -22,7 +22,9 @@ public:
 
   void print();
 
-  void delete_back();
+  void remove_last();
 
   void insert_at(int index, int val);
+
+  void remove_at(int index);
 };
