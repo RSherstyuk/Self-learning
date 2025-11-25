@@ -30,7 +30,7 @@ double SlidingWindow::findMaxAverageTen(std::vector<int> &nums, int k) {
 
   for (int end = 0; end < n; ++end) {
     window_state += nums[end];
-    
+
     if (end - begin + 1 == k) {
       result = std::max(result, window_state);
       window_state -= nums[begin];
@@ -50,7 +50,7 @@ int SlidingWindow::minSubArrayLen(int target, std::vector<int> &nums) {
   for (int end = 0; end < n; ++end) {
     win_state += nums[end];
 
-    while ( win_state >= target ) {
+    while (win_state >= target) {
       int win_size = end - begin + 1;
       result = std::min(result, win_size);
       win_state -= nums[begin];
@@ -58,10 +58,31 @@ int SlidingWindow::minSubArrayLen(int target, std::vector<int> &nums) {
     }
   }
 
-  if (result == std::numeric_limits<int>::max()) return 0;
+  if (result == std::numeric_limits<int>::max())
+    return 0;
 
   return result;
 }
 
 int SlidingWindow::longestOnes(std::vector<int> &nums, int k) {
+  int n = nums.size();
+  int win_state = 0; // 0?
+  int begin = 0;
+  int result = 0;
+
+  for (int end = 0; end < n; ++end) {
+    if (nums[end] == 0) {
+      win_state += 1;
+    }
+
+    while (win_state > k) { // 0? > k
+      if (nums[begin] == 0) {
+        win_state -= 1;
+      }
+      begin += 1;
+    }
+
+    result = std::max(result, end - begin + 1);
+  }
+  return result;
 }

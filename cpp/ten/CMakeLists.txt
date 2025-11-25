@@ -74,3 +74,15 @@ target_include_directories(ten_test PRIVATE
 enable_testing()
 
 add_test(NAME run_all_tests COMMAND ten_test)
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
+endif()
+
+target_compile_options(ten_test PRIVATE
+    $<$<CONFIG:Debug>:-g -O0>
+)
+
+target_compile_options(core PRIVATE $<$<CONFIG:Debug>:-g -O0>)
+target_compile_options(two_pointers PRIVATE $<$<CONFIG:Debug>:-g -O0>)
+target_compile_options(sliding_window PRIVATE $<$<CONFIG:Debug>:-g -O0>)
