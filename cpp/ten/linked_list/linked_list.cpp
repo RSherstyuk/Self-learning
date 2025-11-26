@@ -10,6 +10,12 @@ void List::push(int val) {
   count++;
 }
 
+List::List(std::initializer_list<int> init_list) : head(nullptr), count(0) {
+  for (const int &val : init_list) {
+    this->push(val);
+  }
+}
+
 List::~List() {
   Node *current = head;
   Node *next_node = nullptr;
@@ -133,4 +139,22 @@ void List::suqareUp() {
     current->value = current->value * current->value;
     current = current->next;
   }
+}
+
+List List::add(const List &other) const {
+  List result;
+
+  Node *curr_this = head;
+  Node *curr_other = other.head;
+
+  while (curr_this != nullptr && curr_other != nullptr) {
+    int sum = curr_this->value + curr_other->value;
+
+    result.push(sum);
+
+    curr_this = curr_this->next;
+    curr_other = curr_other->next;
+  }
+
+  return result;
 }

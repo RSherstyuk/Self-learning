@@ -1,3 +1,5 @@
+#include <initializer_list>
+
 class Node {
 public:
   Node *next;
@@ -13,6 +15,8 @@ private:
 
 public:
   List() : head(nullptr), count(0) {}
+
+  List(std::initializer_list<int> init_list);
 
   ~List();
 
@@ -31,4 +35,6 @@ public:
   int get(int index);
 
   void suqareUp();
+
+  List add(const List &other) const;
 };
