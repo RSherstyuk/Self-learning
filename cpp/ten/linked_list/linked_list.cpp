@@ -3,10 +3,15 @@
 
 void List::push(int val) {
   Node *new_node = new Node(val);
-
-  new_node->next = head;
-
-  head = new_node;
+  if (head == nullptr) {
+    head = new_node;
+  } else {
+    Node *current = head;
+    while (current->next != nullptr) {
+      current = current->next;
+    }
+    current->next = new_node;
+  }
   count++;
 }
 
@@ -48,6 +53,7 @@ void List::remove_last() {
   if (head->next == nullptr) {
     delete head;
     head = nullptr;
+    count--;
     return;
   }
 
@@ -62,6 +68,7 @@ void List::remove_last() {
   prev->next = nullptr;
 
   delete current;
+  count--;
 }
 
 void List::insert_at(int index, int val) {
@@ -70,7 +77,7 @@ void List::insert_at(int index, int val) {
   }
 
   if (index == 0) {
-    push(val);
+    push_front(val);
     return;
   }
 
@@ -87,24 +94,28 @@ void List::insert_at(int index, int val) {
 }
 
 void List::remove_at(int index) {
-  if (index < 0 || index > count) {
-    throw std::out_of_range("Nothih thindex");
+  if (index < 0 || index >= count) {
+    throw std::out_of_range("Index out of range");
   }
 
   if (index == 0) {
-    remove_last();
+    pop_front();
     return;
   }
 
-  Node *curr = head;
+  Node *current = head;
+  Node *prev = nullptr;
 
   for (int i = 0; i < index; ++i) {
-    curr = curr->next;
-    
+    prev = current;
+    current = current->next;
   }
-  std::cout << curr->value << std::endl;
-  curr = curr->next->next;
-  
+
+  // current указывает на узел, который нужно удалить
+  // prev указывает на узел перед ним
+  prev->next = current->next; // Связываем предыдущий узел со следующим за current
+  delete current;             // Удаляем узел
+  count--;                    // Уменьшаем счетчик
 }
 
 void List::pop_front() {
@@ -121,6 +132,10 @@ void List::pop_front() {
 }
 
 int List::get(int index) {
+  if (index < 0 || index >= count) {
+    throw std::out_of_range("Index out of range");
+  }
+
   Node *current = head;
 
   for (int i = 0; i < index; ++i) {
