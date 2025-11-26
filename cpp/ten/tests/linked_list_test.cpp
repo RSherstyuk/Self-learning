@@ -26,4 +26,23 @@ TEST(ListTest, test) {
   ls.pop_front();
 
   ls.print();
+
+  ls.push(412);
+  ls.push(4214);
+  ls.push(2);
+  ls.push(412);
+  ls.push(112);
+  ls.push(42);
+
+  ls.print();
+
+  ls.suqareUp();
+
+  ls.print();
+}
+
+TEST(ListGetTest, list) {
+  List ls;
+
+  
 }

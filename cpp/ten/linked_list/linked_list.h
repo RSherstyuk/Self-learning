@@ -27,4 +27,8 @@ public:
   void remove_at(int index);
 
   void pop_front();
+
+  int get(int index);
+
+  void suqareUp();
 };

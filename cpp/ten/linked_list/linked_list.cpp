@@ -115,3 +115,22 @@ void List::pop_front() {
   delete tmp;
   count--;
 }
+
+int List::get(int index) {
+  Node *current = head;
+
+  for (int i = 0; i < index; ++i) {
+    current = current->next;
+  }
+
+  return current->value;
+}
+
+void List::suqareUp() {
+  Node *current = head;
+
+  while (current != nullptr) {
+    current->value = current->value * current->value;
+    current = current->next;
+  }
+}
