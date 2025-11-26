@@ -22,7 +22,9 @@ public:
 
   void push(int val);
 
-  void print();
+  void print() const;
+
+  void push_front(int val);
 
   void remove_last();
 
@@ -37,4 +39,6 @@ public:
   void suqareUp();
 
   List add(const List &other) const;
+
+  int size() const { return count; }
 };

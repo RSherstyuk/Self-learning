@@ -29,7 +29,7 @@ List::~List() {
   count = 0;
 }
 
-void List::print() {
+void List::print() const {
   Node *current = head;
   std::cout << "List: ";
   while (current != nullptr) {
@@ -157,4 +157,11 @@ List List::add(const List &other) const {
   }
 
   return result;
+}
+
+void List::push_front(int val) {
+  Node *new_node = new Node(val);
+  new_node->next = head;
+  head = new_node;
+  count++;
 }
