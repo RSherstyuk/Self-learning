@@ -96,17 +96,15 @@ void List::remove_at(int index) {
     return;
   }
 
-  Node *current = head;
-  Node *prev = nullptr;
+  Node *curr = head;
 
-  while (current->next != nullptr) {
-    prev = current;
-    current = current->next;
+  for (int i = 0; i < index; ++i) {
+    curr = curr->next;
+    
   }
-
-  prev->next = nullptr;
-  delete current;
-  count--;
+  std::cout << curr->value << std::endl;
+  curr = curr->next->next;
+  
 }
 
 void List::pop_front() {
