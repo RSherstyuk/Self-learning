@@ -20,7 +20,7 @@ struct ListNode {
       head = new_node;
       return;
     }
-    
+
     Node *curr = head;
     while (curr->next != nullptr) {
       curr = curr->next;
@@ -45,5 +45,27 @@ struct ListNode {
     }
 
     return slow;
+  }
+
+  Node *deleteMid(Node *head) {
+    if (!head->next || !head)
+      return nullptr;
+
+    Node *prev = nullptr;
+    Node *fast = head;
+    Node *slow = head;
+
+    while (fast && fast->next) {
+      prev = slow;
+      slow = slow->next;
+      fast = fast->next->next;
+    }
+
+    if (prev)
+      prev->next = slow->next;
+
+    delete slow;
+
+    return head;
   }
 };
