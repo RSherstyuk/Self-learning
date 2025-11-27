@@ -68,4 +68,17 @@ struct ListNode {
 
     return head;
   }
+
+  Node *reverseList(Node *head) {
+    Node *curr = nullptr;
+    Node *prev = head;
+
+    while (curr != nullptr) {
+      Node *tmp = curr->next;
+      curr->next = prev;
+      prev = curr;
+      curr = tmp;
+    }
+    return prev;
+  }
 };
