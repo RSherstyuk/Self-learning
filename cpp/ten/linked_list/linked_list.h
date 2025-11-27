@@ -41,4 +41,5 @@ public:
   List add(const List &other) const;
 
   int size() const { return count; }
+
 };
