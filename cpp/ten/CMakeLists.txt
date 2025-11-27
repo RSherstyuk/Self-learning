@@ -65,6 +65,7 @@ add_executable(ten_test
     tests/date_test.cpp
     tests/sliding_window_test.cpp
     tests/linked_list_test.cpp
+    tests/leet_code_list_test.cpp
 )
 
 target_link_libraries(ten_test PRIVATE 
