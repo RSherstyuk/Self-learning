@@ -1,4 +1,5 @@
 #include <initializer_list>
+#include <vector>
 #include <iostream>
 
 struct Node {
@@ -80,5 +81,28 @@ struct ListNode {
       curr = tmp;
     }
     return prev;
+  }
+
+  bool isPolList(Node *head) {
+    std::vector<int> vec;
+
+    while (head != nullptr) {
+      vec.push_back(head->val);
+      head = head->next;
+    }
+
+    int left = 0;
+    int right = vec.size() - 1;
+
+    while (left < right) {
+      if (vec[left] > vec[right]) {
+        return false;
+      }
+
+      left++;
+      right++;
+    }
+
+    return true;
   }
 };
