@@ -7,6 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+add_library(lru STATIC 
+    lru/lru.h
+    lru/main.cpp
+)
+
 add_library(linked_list SHARED
     linked_list/linked_list.cpp
 )
@@ -41,7 +46,7 @@ target_include_directories(core PUBLIC
 )
 
 add_executable(ten
-    src/main.cpp
+    lru/main.cpp
 )
 
 target_link_libraries(ten PRIVATE 
