@@ -7,6 +7,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+add_library(sq SHARED 
+    sq_dir/queue.h
+    sq_dir/stack.h
+    sq_dir/queue.cpp
+)
+
+target_include_directories(sq PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/sq
+)
+
 add_library(lru STATIC 
     lru/lru.h
     lru/main.cpp
@@ -53,6 +63,8 @@ target_link_libraries(ten PRIVATE
     core 
     two_pointers
     sliding_window
+    lru 
+    sq
 )
 
 include(FetchContent)
