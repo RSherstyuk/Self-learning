@@ -18,3 +18,6 @@ class TestTwoPointTasks:
 
     def test_sorted_squares(self):
         assert sorted_squares([-4, -1, 0, 3, 10]) == [0, 1, 9, 16, 100]
+
+    def test_max_area(self):
+        assert max_area([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49

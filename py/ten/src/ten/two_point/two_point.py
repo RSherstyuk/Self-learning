@@ -90,3 +90,20 @@ def sorted_squares(arr: list[int]) -> list[int]:
         pos -= 1
 
     return result
+
+def max_area(nums: list[int]) -> int:
+    n = len(nums)
+    l = 0
+    r = n - 1
+    result = 0
+
+    while l < r:
+        width = r - l
+        result = max(result, width * min(nums[l], nums[r]))
+        
+        if(nums[l] < nums[r]):
+            l += 1
+        else:
+            r -= 1
+
+    return result
