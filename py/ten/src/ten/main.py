@@ -1,7 +1,9 @@
 import numpy as np
 
 def main():
-    print("Hello from ten!")
+    arr = [1,2,3,3,5,5,6,1]
+    for i in range(len(arr)):
+        print(i)
 
 
 if __name__ == "__main__":
