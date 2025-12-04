@@ -68,5 +68,25 @@ def three_sum(nums: list[int]) -> list[list[int]]:
 
     return result
 
-def sorted_squares(arr: list[int]):
-    pass
+
+def sorted_squares(arr: list[int]) -> list[int]:
+    n = len(arr)
+    l = 0
+    r = n - 1
+    result = [0] * n
+    pos = n - 1
+
+    while l <= r:
+        lSq = arr[l] * arr[l]
+        rSq = arr[r] * arr[r]
+
+        if lSq > rSq:
+            result[pos] = lSq
+            l += 1
+        else:
+            result[pos] = rSq
+            r -= 1
+
+        pos -= 1
+
+    return result
