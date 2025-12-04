@@ -67,3 +67,6 @@ def three_sum(nums: list[int]) -> list[list[int]]:
                 right -= 1
 
     return result
+
+def sorted_squares(arr: list[int]):
+    pass

@@ -15,3 +15,6 @@ class TestTwoPointTasks:
 
     def test_three_sum(self):
         assert three_sum([-1, 0, 1, 2, -1, 4]) == [[-1, -1, 2], [-1, 0, 1]]
+
+    def test_sorted_squares(self):
+        assert sorted_squares([-4, -1, 0, 3, 10]) == [0, 1, 9, 16, 100]
