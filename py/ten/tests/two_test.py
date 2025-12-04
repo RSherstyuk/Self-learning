@@ -21,3 +21,8 @@ class TestTwoPointTasks:
 
     def test_max_area(self):
         assert max_area([1, 8, 6, 2, 5, 4, 8, 3, 7]) == 49
+
+    def test_move_zeroes(self):
+        ls = [0, 1, 0, 3, 12]
+        move_zeroes(ls)
+        assert ls == [1, 3, 12, 0, 0]
