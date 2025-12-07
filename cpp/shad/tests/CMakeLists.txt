@@ -7,3 +7,4 @@ macro(add_test test_name)
 endmacro()
 
 add_test(algo_test)
+add_test(matr_test)
