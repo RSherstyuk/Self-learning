@@ -1,8 +1,6 @@
 // cpp
 
 #include <cmath>
-#include <iostream>
-#include <vector>
 
 struct Vec3 {
 
