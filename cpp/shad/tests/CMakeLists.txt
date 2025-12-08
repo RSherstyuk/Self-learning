@@ -8,3 +8,4 @@ endmacro()
 
 add_test(algo_test)
 add_test(matr_test)
+add_test(sphere_test)
