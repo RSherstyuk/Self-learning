@@ -91,9 +91,9 @@ void integrateAngularVelocity(Quat &q, const Vec3 &omega, double dt) {
   if (omegaMag < 1e-12)
     return;
   Vec3 axis = {omega.x / omegaMag, omega.y / omegaMag, omega.z / omegaMag};
-  double theta = omegaMag * dt; 
+  double theta = omegaMag * dt;
   Quat qd = Quat::fromAxisAngle(axis, theta);
 
-  q = mul(qd, q);  
+  q = mul(qd, q);
   q.normalize();
 }
