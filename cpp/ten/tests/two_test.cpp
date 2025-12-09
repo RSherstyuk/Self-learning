@@ -1,49 +1,158 @@
-find_package(GTest CONFIG REQUIRED)
+#include "SolutionTwoPointers.h"
+#include "SolutionTwoPointersB.h"
+#include <gtest/gtest.h>
 
-# Test for two_pointers
-add_executable(two_pointers_test two_test.cpp)
-target_link_libraries(two_pointers_test PRIVATE GTest::gtest_main ten_two_pointers ten_sliding_window ten_linked_list_lib ten_date)
-target_include_directories(two_pointers_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/two_pointers
-    ${CMAKE_SOURCE_DIR}/sliding_window
-    ${CMAKE_SOURCE_DIR}/linked_list # For linked_list.h and list_node.h
-    ${CMAKE_SOURCE_DIR}/src # For Date.h
-    ${CMAKE_SOURCE_DIR}/lru # For lru.h
-    ${CMAKE_SOURCE_DIR}/sq_dir # For stack.h, queue.h
-)
+TEST(TwoSumTest, FindsPairThatSumsToTarget) {
+  SolutionTwoPointers sol;
+  std::vector<int> nums = {2, 7, 11, 15};
+  int target = 9;
 
-# Test for matrix
-add_executable(matrix_test matrix_test.cpp)
-target_link_libraries(matrix_test PRIVATE GTest::gtest_main)
-target_include_directories(matrix_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/include # For Matrix.hpp
-)
+  std::vector<int> result = sol.twoSum(nums, target);
+  std::sort(result.begin(), result.end());
 
-# Test for linked_list
-add_executable(linked_list_test linked_list_test.cpp)
-target_link_libraries(linked_list_test PRIVATE GTest::gtest_main ten_linked_list_lib)
-target_include_directories(linked_list_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/linked_list # For linked_list.h
-)
+  EXPECT_EQ(result, std::vector<int>({2, 7}));
+}
 
-# Test for Date
-add_executable(date_test date_test.cpp)
-target_link_libraries(date_test PRIVATE GTest::gtest_main ten_date)
-target_include_directories(date_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/src # For Date.h
-)
+TEST(isPolTest, find) {
+  SolutionTwoPointers sol;
+  std::string s = "aasaa";
 
-# Test for sliding_window
-add_executable(sliding_window_test sliding_window_test.cpp)
-target_link_libraries(sliding_window_test PRIVATE GTest::gtest_main ten_sliding_window)
-target_include_directories(sliding_window_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/sliding_window # For SlidingWindow.h
-)
+  EXPECT_TRUE(sol.isPalindrome(s));
+}
 
-# Test for list_node (from linked_list directory)
-add_executable(leet_code_list_test leet_code_list_test.cpp)
-target_link_libraries(leet_code_list_test PRIVATE GTest::gtest_main)
-target_include_directories(leet_code_list_test PRIVATE
-    ${CMAKE_SOURCE_DIR}/linked_list # For list_node.h
-)
+TEST(reverseStringTest, reverse) {
+  SolutionTwoPointers sol;
+  std::string s = "asdfe";
+
+  sol.reverseString(s);
+
+  EXPECT_EQ(s, "efdsa");
+}
+
+TEST(ThreeSumTest, find) {
+  SolutionTwoPointers sol;
+  std::vector<int> v{-1, 0, 1, 2, -1, 4};
+
+  std::vector<std::vector<int>> result = sol.threeSum(v);
+  std::vector<std::vector<int>> nums = {{-1, -1, 2}, {-1, 0, 1}};
+
+  EXPECT_EQ(result, nums);
+}
+
+TEST(ThreeSumTestB, HandlesSpecificCase) {
+  SolutionTwoPointersB sol_B;
+  std::vector<int> v{-1, 0, 1, 2, -1, 4};
+
+  std::vector<std::vector<int>> result = sol_B.threeSum(v);
+  std::vector<std::vector<int>> nums = {{-1, -1, 2}, {-1, 0, 1}};
+
+  EXPECT_EQ(result, nums);
+}
+
+TEST(SquareTwoPointers, sortTrue) {
+  SolutionTwoPointers sol;
+  std::vector<int> v{-4, -1, 0, 3, 10};
+
+  std::vector<int> res = sol.sortedSquares(v);
+  std::vector<int> true_res{0, 1, 9, 16, 100};
+
+  EXPECT_EQ(res, true_res);
+}
+
+TEST(SquareTwoPointers, fSum) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {-1, 0, -1, 0, -2, 2};
+
+  std::vector<std::vector<int>> result = sol.fSum(v, 0);
+  std::vector<std::vector<int>> true_res{{-2, 0, 0, 2}, {-1, -1, 0, 2}};
+
+  EXPECT_EQ(result, true_res);
+}
+
+TEST(maxAreaPointers, maxArea) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+
+  int result = sol.maxArea(v);
+  int true_res = 49;
+
+  EXPECT_EQ(result, true_res);
+}
+
+TEST(removeDupicatesFormSortedArray, removeDuplicates) {
+  SolutionTwoPointers sol;
+  std::vector<int> v = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+
+  int result = sol.removeDuplicates(v);
+  int true_res = 5;
+
+  EXPECT_EQ(result, true_res);
+}
+
+TEST(moveAllZeroes, moveZeroes) {
+
+  SolutionTwoPointers sol;
+
+  std::vector<int> v = {0, 1, 0, 3, 12};
+
+  sol.moveZeroes(v);
+  std::vector<int> true_res = {1, 3, 12, 0, 0};
+
+  EXPECT_EQ(v, true_res);
+}
+
+TEST(isSubseq, isSubSeq) {
+
+  SolutionTwoPointers sol;
+
+  std::string s = "abc";
+  std::string t = "ahbgdc";
+
+  bool res = sol.isSubseq(s, t);
+
+  EXPECT_EQ(res, true);
+}
+
+TEST(backSpace, compareBackspace) {
+
+  SolutionTwoPointers sol;
+
+  std::string s = "ab#c";
+  std::string t = "ad#c";
+
+  bool res = sol.backspaceCompare(s, t);
+
+  EXPECT_EQ(res, true);
+}
+
+TEST(MergeTest, BasicMergeCase) {
+  std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
+  int m = 3;
+  std::vector<int> nums2 = {2, 5, 6};
+  int n = 3;
+
+  std::vector<int> expected = {1, 2, 2, 3, 5, 6};
+
+  SolutionTwoPointers sol;
+
+  sol.merge(nums1, m, nums2, n);
+  ASSERT_EQ(nums1, expected) << "Слияние не дало ожидаемого результата. nums1 "
+                                "должно быть: [1, 2, 2, 3, 5, 6]";
+}
+
+TEST(MergeTestWith, BasicMergeCase) {
+  std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};
+
+  int m = 3;
+  std::vector<int> nums2 = {2, 5, 6};
+  int n = 3;
+
+  std::vector<int> expected = {1, 2, 2, 3, 5, 6};
+
+  SolutionTwoPointers sol;
+
+  sol.mergeWith(nums1, m, nums2, n);
+  ASSERT_EQ(nums1, expected) << "Слияние не дало ожидаемого результата. nums1 "
+                                "должно быть: [1, 2, 2, 3, 5, 6]";
+}
 
