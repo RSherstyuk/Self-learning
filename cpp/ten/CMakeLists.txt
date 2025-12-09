@@ -1,118 +1,31 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16)
 
-project(ten LANGUAGES CXX)
+project (shad LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set (CMAKE_CXX_STANDARD 20)
+set (CMAKE_CXX_EXTENSIONS ON) # Same as gnu++2a (ON) vs c++2a (OFF): https://cmake.org/cmake/help/latest/prop_tgt/CXX_EXTENSIONS.html
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set (DEBUG_INFO_FLAGS "-g -gdwarf-4")
 
-add_library(sq SHARED 
-    sq_dir/queue.h
-    sq_dir/stack.h
-    sq_dir/queue.cpp
-)
+set (CMAKE_CXX_FLAGS                     "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS}")
+set (CMAKE_CXX_FLAGS_RELWITHDEBINFO      "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -O3 ${DEBUG_INFO_FLAGS} ${CMAKE_CXX_FLAGS_ADD}")
+set (CMAKE_CXX_FLAGS_DEBUG               "${CMAKE_CXX_FLAGS_DEBUG} -O0 ${DEBUG_INFO_FLAGS} ${CMAKE_CXX_FLAGS_ADD}")
 
-target_include_directories(sq PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/sq
-)
+set (CMAKE_C_FLAGS                       "${CMAKE_C_FLAGS} ${COMPILER_FLAGS} ${CMAKE_C_FLAGS_ADD}")
+set (CMAKE_C_FLAGS_RELWITHDEBINFO        "${CMAKE_C_FLAGS_RELWITHDEBINFO} -O3 ${DEBUG_INFO_FLAGS} ${CMAKE_C_FLAGS_ADD}")
+set (CMAKE_C_FLAGS_DEBUG                 "${CMAKE_C_FLAGS_DEBUG} -O0 ${DEBUG_INFO_FLAGS} ${CMAKE_C_FLAGS_ADD}")
 
-add_library(lru STATIC 
-    lru/lru.h
-    lru/main.cpp
-)
+set (CMAKE_ASM_FLAGS                     "${CMAKE_ASM_FLAGS} ${COMPILER_FLAGS} ${CMAKE_ASM_FLAGS_ADD}")
+set (CMAKE_ASM_FLAGS_RELWITHDEBINFO      "${CMAKE_ASM_FLAGS_RELWITHDEBINFO} -O3 ${DEBUG_INFO_FLAGS} ${CMAKE_ASM_FLAGS_ADD}")
+set (CMAKE_ASM_FLAGS_DEBUG               "${CMAKE_ASM_FLAGS_DEBUG} -O0 ${DEBUG_INFO_FLAGS} ${CMAKE_ASM_FLAGS_ADD}")
 
-add_library(linked_list SHARED
-    linked_list/linked_list.cpp
-)
 
-target_include_directories(linked_list PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/linked_list
-)
+include(cmake/glob_sources.cmake)
 
-add_library(two_pointers SHARED
-    two_pointers/SolutionTwoPointers.cpp
-    two_pointers/SolutionTwoPointersB.cpp
-)
+add_subdirectory(contrlib)
+add_subdirectory(src)
+add_subdirectory(two_pointers)
+add_subdirectory(tests)
 
-target_include_directories(two_pointers PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/two_pointers
-)
 
-add_library(sliding_window SHARED
-    sliding_window/SlidingWindow.cpp
-)
-
-target_include_directories(sliding_window PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/sliding_window
-)
-
-add_library(core SHARED
-    src/Date.cpp
-)
-
-target_include_directories(core PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-add_executable(ten
-    lru/main.cpp
-)
-
-target_link_libraries(ten PRIVATE 
-    core 
-    two_pointers
-    sliding_window
-    lru 
-    sq
-)
-
-include(FetchContent)
-FetchContent_Declare(
-    googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG v1.14.0
-)
-
-FetchContent_MakeAvailable(googletest)
-
-add_executable(ten_test 
-    tests/two_test.cpp
-    tests/matrix_test.cpp
-    tests/date_test.cpp
-    tests/sliding_window_test.cpp
-    tests/linked_list_test.cpp
-    tests/leet_code_list_test.cpp
-)
-
-target_link_libraries(ten_test PRIVATE 
-    gtest_main 
-    core
-    two_pointers
-    sliding_window
-    linked_list
-)
-
-target_include_directories(ten_test PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/two_pointers
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/sliding_window
-    ${CMAKE_CURRENT_SOURCE_DIR}/linked_list
-)
-
-enable_testing()
-
-add_test(NAME run_all_tests COMMAND ten_test)
-
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
-endif()
-
-target_compile_options(ten_test PRIVATE
-    $<$<CONFIG:Debug>:-g -O0>
-)
-
-target_compile_options(core PRIVATE $<$<CONFIG:Debug>:-g -O0>)
-target_compile_options(two_pointers PRIVATE $<$<CONFIG:Debug>:-g -O0>)
-target_compile_options(sliding_window PRIVATE $<$<CONFIG:Debug>:-g -O0>)
-target_compile_options(linked_list PRIVATE $<$<CONFIG:Debug>:-g -O0>)
