@@ -1,3 +1,5 @@
+#pragma once
+
 #include "SolutionTwoPointers.h"
 
 class SolutionTwoPointersB : public SolutionTwoPointers {
