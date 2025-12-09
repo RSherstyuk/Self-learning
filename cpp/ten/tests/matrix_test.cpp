@@ -1,4 +1,4 @@
-#include "Matrix.hpp"
+#include "Matrix.h"
 #include "gtest/gtest.h"
 
 template <typename T> class MatrixTest : public ::testing::Test {};
