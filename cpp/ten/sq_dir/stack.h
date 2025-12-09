@@ -21,26 +21,6 @@ public:
     }
   }
 
-  void push(int val) {
-    ListNode *newNode = new ListNode(val);
-
-    newNode->next = topNode;
-
-    topNode = newNode;
-
-    cap++;
-  }
-
-  int pop() {
-    int popedVal = topNode->val;
-
-    ListNode *tmp = topNode;
-
-    topNode = topNode->next;
-
-    delete tmp;
-
-    cap--;
-    return popedVal;
-  }
+  void push(int val);
+  void pop();
 };
