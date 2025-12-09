@@ -1,0 +1,2 @@
+add_library(ten_sliding_window STATIC SlidingWindow.cpp)
+target_include_directories(ten_sliding_window PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

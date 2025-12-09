@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project (shad LANGUAGES C CXX)
+project (ten LANGUAGES C CXX)
 
 set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_EXTENSIONS ON) # Same as gnu++2a (ON) vs c++2a (OFF): https://cmake.org/cmake/help/latest/prop_tgt/CXX_EXTENSIONS.html
@@ -23,9 +23,16 @@ set (CMAKE_ASM_FLAGS_DEBUG               "${CMAKE_ASM_FLAGS_DEBUG} -O0 ${DEBUG_I
 
 include(cmake/glob_sources.cmake)
 
-add_subdirectory(contrlib)
+add_subdirectory(contrlib) # For googletest
 add_subdirectory(src)
 add_subdirectory(two_pointers)
+add_subdirectory(sliding_window)
+add_subdirectory(lru)
+add_subdirectory(linked_list)
+add_subdirectory(sq_dir)
 add_subdirectory(tests)
+
+# Add common include directories for header-only components
+target_include_directories(ten_main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include) # For Matrix.hpp if needed by main
 
 
