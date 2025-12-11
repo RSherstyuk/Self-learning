@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 struct ListNode {
   int val;
   ListNode *next;
@@ -25,4 +27,6 @@ public:
 
   void push(int val);
   void pop();
+  void printStack() const;
+  bool isVald(std::string s);
 };
