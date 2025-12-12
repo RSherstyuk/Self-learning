@@ -30,6 +30,7 @@ public:
   void push(int val);
   void pop();
   void printStack() const;
+
   static bool isValid(std::string &s) {
     std::unordered_map<char, char> pair{
         {'(', ')'},
@@ -50,6 +51,6 @@ public:
       }
     }
 
-    return true;
+    return st.empty();
   }
 };
