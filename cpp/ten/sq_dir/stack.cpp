@@ -54,14 +54,3 @@ void Stack::printStack() const {
   std::cout << "-------" << std::endl; // Основание стека
 }
 
-bool Stack::isVald(std::string s) {
-
-  std::unordered_map<char, char> pair{
-      {'(', ')'},
-      {'{', '}'},
-      {'[', ']'},
-  };
-
-  for (char c : s) {
-  }
-}
