@@ -10,5 +10,5 @@ int main() {
 
   string s = "abbacd";
 
-  std::cout << Stack::removeDuplicates(s);
+  std::cout << Stack::removeDuplicatesFast(s);
 }
