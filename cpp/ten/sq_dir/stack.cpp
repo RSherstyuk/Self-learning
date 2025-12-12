@@ -1,6 +1,5 @@
 #include "stack.h"
 #include <iostream>
-#include <unordered_map>
 
 void Stack::push(int val) {
   ListNode *newNode = new ListNode(val);
@@ -53,4 +52,6 @@ void Stack::printStack() const {
 
   std::cout << "-------" << std::endl; // Основание стека
 }
+
+
 

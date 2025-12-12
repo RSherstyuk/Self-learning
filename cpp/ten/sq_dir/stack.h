@@ -1,6 +1,9 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
+#include <stack>
+
 
 struct ListNode {
   int val;
@@ -28,5 +31,26 @@ public:
   void push(int val);
   void pop();
   void printStack() const;
-  bool isVald(std::string s);
+  static bool isValid(std::string &s) {
+    std::unordered_map<char, char> pair{
+        {'(', ')'},
+        {'{', '}'},
+        {'[', ']'},
+    };
+
+    std::stack<char> st;
+
+    for (char c : s) {
+      if (pair.count(c)) {
+        st.push(c);
+
+      } else if (!st.empty() && pair[st.top()] == c) {
+        st.pop();
+      } else {
+        return false;
+      }
+    }
+
+    return true;
+  }
 };
