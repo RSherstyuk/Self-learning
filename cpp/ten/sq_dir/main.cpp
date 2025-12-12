@@ -8,7 +8,7 @@ int main() {
 
   Stack sq;
 
-  string s = "([{}])";
+  string s = "abbacd";
 
-  Stack::isValid(s);
+  std::cout << Stack::removeDuplicates(s);
 }

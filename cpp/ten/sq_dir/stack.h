@@ -53,4 +53,23 @@ public:
 
     return st.empty();
   }
+
+  static std::string removeDuplicates(std::string s) {
+    std::string ss = "";
+    std::stack<char> stack;
+    for (char c : s) {
+      if (!stack.empty() && stack.top() == c) {
+        stack.pop();
+      } else {
+        stack.push(c);
+      }
+    }
+
+    while (!stack.empty()) {
+      ss += stack.top();
+      stack.pop();
+    }
+
+    return ss;
+  }
 };
