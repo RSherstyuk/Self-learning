@@ -52,6 +52,3 @@ void Stack::printStack() const {
 
   std::cout << "-------" << std::endl; // Основание стека
 }
-
-
-

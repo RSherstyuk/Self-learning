@@ -8,7 +8,4 @@ struct ListNode {
   ListNode(int val) : val(val) {}
 };
 
-class Queue {
-
-  
-};
+class Queue {};

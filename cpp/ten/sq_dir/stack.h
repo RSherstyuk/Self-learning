@@ -1,9 +1,8 @@
 #pragma once
 
+#include <stack>
 #include <string>
 #include <unordered_map>
-#include <stack>
-
 
 struct ListNode {
   int val;
