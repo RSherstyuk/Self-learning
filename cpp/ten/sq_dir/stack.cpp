@@ -13,17 +13,18 @@ void Stack::push(int val) {
 }
 
 void Stack::pop() {
-if (topNode == nullptr) {
-        std::cerr << "Ошибка: Стек пуст, pop невозможен." << std::endl;
-        return; 
-    }
-    
-    ListNode *tmp = topNode;
-    
-    topNode = topNode->next;     
-    delete tmp;
-    
-    cap--;}
+  if (topNode == nullptr) {
+    std::cerr << "Ошибка: Стек пуст, pop невозможен." << std::endl;
+    return;
+  }
+
+  ListNode *tmp = topNode;
+
+  topNode = topNode->next;
+  delete tmp;
+
+  cap--;
+}
 
 void Stack::printStack() const {
   ListNode *current = topNode;
@@ -55,10 +56,10 @@ void Stack::printStack() const {
 
 bool Stack::isVald(std::string s) {
 
-  std::unordered_map<char, char> pair {
-    {'(', ')'},
-    {'{', '}'},
-    {'[', ']'},
+  std::unordered_map<char, char> pair{
+      {'(', ')'},
+      {'{', '}'},
+      {'[', ']'},
   };
 
   for (char c : s) {
