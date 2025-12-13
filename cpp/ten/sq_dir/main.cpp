@@ -8,7 +8,7 @@ int main() {
 
   Stack sq;
 
-  string s = "abbacd";
+  string s = "abb*acd";
 
-  std::cout << Stack::removeDuplicatesFast(s);
+  std::cout << Stack::removeStarts(s);
 }

@@ -57,6 +57,7 @@ public:
   static std::string removeDuplicates(std::string s) {
     std::string ss = "";
     std::stack<char> stack;
+    std::stack<char> st;
     for (char c : s) {
       if (!stack.empty() && stack.top() == c) {
         stack.pop();
@@ -66,8 +67,14 @@ public:
     }
 
     while (!stack.empty()) {
-      ss += stack.top();
+      char var = stack.top();
+      st.push(var);
       stack.pop();
+    }
+
+    while (!st.empty()) {
+      ss += st.top();
+      st.pop();
     }
 
     return ss;
@@ -86,4 +93,5 @@ public:
 
     return result;
   }
+
 };
