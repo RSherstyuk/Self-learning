@@ -105,10 +105,8 @@ public:
       } else {
         result.push_back(c);
       }
-
     }
 
     return result;
   }
-
 };
