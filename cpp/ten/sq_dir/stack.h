@@ -94,4 +94,21 @@ public:
     return result;
   }
 
+  static std::string removeStarts(std::string s) {
+    std::string result = "";
+
+    for (char c : s) {
+      if (!result.empty() && c == '*') {
+
+        result.pop_back();
+
+      } else {
+        result.push_back(c);
+      }
+
+    }
+
+    return result;
+  }
+
 };
