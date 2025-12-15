@@ -1,6 +1,5 @@
 def spiral(n: int) -> list[list[int]]:
     if n <= 0:
-
         return []
 
     ls = [[0] * n for _ in range(n)]
@@ -39,4 +38,3 @@ def spiral(n: int) -> list[list[int]]:
             break
 
     return ls
-
