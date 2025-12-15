@@ -60,13 +60,3 @@ class LinkedList:
         return slow
 
 
-def main():
-    list = LinkedList()
-    list.insert_at_beginning(12)
-    list.insert_at_beginning(12)
-    list.insert_at_beginning(12)
-    list.insert_at_beginning(12)
-    list.display()
-
-
-main()
