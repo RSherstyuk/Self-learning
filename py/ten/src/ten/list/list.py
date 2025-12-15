@@ -44,6 +44,21 @@ class LinkedList:
             current = current.next
         print(" -> ".join(map(str, elements)))
 
+    def find_mid(self) -> Optional[Node]:
+        if self.head is None:
+            return None
+
+        slow: Node | None = self.head
+        fast: Node | None = self.head
+
+        while fast is not None and fast.next is not None:
+            assert slow is not None
+
+            slow = slow.next
+            fast = fast.next.next
+
+        return slow
+
 
 def main():
     list = LinkedList()
