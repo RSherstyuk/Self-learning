@@ -99,7 +99,6 @@ public:
 
     for (char c : s) {
       if (!result.empty() && c == '*') {
-
         result.pop_back();
 
       } else {
