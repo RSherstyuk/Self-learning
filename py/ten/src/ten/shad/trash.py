@@ -43,6 +43,7 @@ def spiral(n: int) -> list[list[int]]:
     return ls
 
 
+# Deep ml tasks
 def find_der(func: list) -> list:
     res = [0] * len(func)
 
@@ -61,8 +62,27 @@ def product_rule_derivative(f_coeffs: list, g_coeffs: list) -> list:
     return list(res)
 
 
+def calculate_covariance_matrix(features: list[list[float]]) -> list[list[float]]:
+    n = len(features)
+    d = len(features[0])
+
+    means = [sum(f) / d for f in features]
+
+    cov = [[0.0 for _ in range(d)] for _ in range(d)]
+
+    for i in range(n):
+        for j in range(n):
+            s = sum((features[i][k] - means[i]) * (features[j][k] - means[j]) 
+                    for k in range(d))
+            cov[i][j] = s / (d - 1) if d > 1 else 0.0
+
+    return cov
+
+
 def test():
-    print(product_rule_derivative([2], [3, 4]))
+    m = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+    print(np.cov(m))
+    print(calculate_covariance_matrix(m))
 
 
 test()
