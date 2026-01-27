@@ -1,9 +1,11 @@
+import copy
+
 class mat:
     def __init__(self, mat: list[list[float]]) -> None:
         self.mat = mat
 
     def get_rank(self) -> int:
-        m = self.mat
+        m = copy.deepcopy(self.mat)
         rows = len(m)
         cols = len(m[0])
 
@@ -31,11 +33,16 @@ class mat:
 
         return rank
 
+    def __repr__(self) -> str:
+       return self.__str__()
+
+    def __str__(self) -> str:
+        return f'{self.mat}'
 
 def main():
     m = mat([[1, 2], [2, 4]])
-    print(m.get_rank())
-    print(m, sep="")
+    repr(m.get_rank())
+    print(m)
 
 
 if __name__ == "__main__":
