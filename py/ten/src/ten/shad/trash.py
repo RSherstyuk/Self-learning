@@ -72,12 +72,13 @@ def calculate_covariance_matrix(features: list[list[float]]) -> list[list[float]
 
     for i in range(n):
         for j in range(n):
-            s = sum((features[i][k] - means[i]) * (features[j][k] - means[j]) 
-                    for k in range(d))
+            s = sum((features[i][k] - means[i]) * (features[j][k] - means[j]) for k in range(d))
             cov[i][j] = s / (d - 1) if d > 1 else 0.0
 
     return cov
 
+def mat_dot_vec(a: list[list[float]]) -> list[float]:
+    return []
 
 def test():
     m = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]

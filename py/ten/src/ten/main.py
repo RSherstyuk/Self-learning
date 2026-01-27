@@ -85,8 +85,9 @@ def missing_number(nums: list[int]) -> int:
 
 
 def main():
-    l = [ord("d") for _ in range(10)]
-    print(l)
+    mat = [[1, 2, 4], [2, 4, 1], [2, 3, 5]]
+    print(np.linalg.matrix_rank(mat))
+    print(get_rank(mat))
 
 
 if __name__ == "__main__":
