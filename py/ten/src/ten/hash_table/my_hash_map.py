@@ -51,14 +51,3 @@ class LinkedList:
             prev = cur
             cur = cur.next
 
-
-def main():
-    ls = LinkedList()
-    ls.add(12, 23123)
-    ls.remove(12)
-    ls.add(21, 13)
-    print(ls.get(21))
-
-
-if __name__ == "__main__":
-    main()
