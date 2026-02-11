@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Any, Optional
 
 
 class Node:
@@ -51,3 +51,22 @@ class LinkedList:
             prev = cur
             cur = cur.next
 
+
+class HashTable:
+    def __init__(self, cap=10) -> None:
+        self.cap = cap
+        self.buckets = [LinkedList() for _ in range(self.cap)]
+
+    def hash_f(self):
+        pass
+
+    def put(self, key: Any, val: Any) -> None:
+        if key is None:
+            raise ValueError("key can not be None")
+        pass
+
+    def get(self, key) -> Any:
+        pass
+
+    def delete(self, key) -> None:
+        pass
