@@ -36,11 +36,28 @@ class LinkedList:
                 break
             cur = cur.next
 
+    def remove(self, key) -> None:
+        cur = self.head
+        prev = None
+
+        while cur:
+            if cur.key == key:
+                if prev is None:
+                    self.head = cur.next
+                else:
+                    prev.next = cur.next
+                return
+
+            prev = cur
+            cur = cur.next
+
 
 def main():
     ls = LinkedList()
     ls.add(12, 23123)
-    print(ls.get(12))
+    ls.remove(12)
+    ls.add(21, 13)
+    print(ls.get(21))
 
 
 if __name__ == "__main__":
