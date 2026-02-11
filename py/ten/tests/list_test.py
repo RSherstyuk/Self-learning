@@ -1,7 +1,7 @@
 from ten.hash_table.my_hash_map import LinkedList
 
 
-class TestTwoPointTasks:
+class LinkedListTest:
     def test_get_op(self):
         ls = LinkedList()
         ls.add(12, 21)
