@@ -4,14 +4,17 @@ import matplotlib.pyplot as plt
 from numpy.typing import NDArray
 
 
-def der_ost(num: NDArray) -> NDArray:
-    return num % 10
+def der_ost(num: NDArray, bucket_num: int) -> NDArray:
+    return num % bucket_num
 
 
 def create_plot() -> None:
-    x = np.linspace(0, 50, 51)
-    y = der_ost(x)
-    plt.scatter(x, y)
+    x1 = np.linspace(0, 9, 10)
+    y1 = der_ost(x1, 2)
+    y2 = der_ost(x1, 10)
+    plt.scatter(x1, y1, label="2 bucket_num", color="red")
+    plt.scatter(x1, y2, label="10 bucket_num", color="green")
+    plt.legend()
     plt.show()
 
 
