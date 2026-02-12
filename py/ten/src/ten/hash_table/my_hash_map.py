@@ -22,7 +22,7 @@ class LinkedList:
                 return cur.val
             cur = cur.next
 
-        return None
+        return -1
 
     def add(self, key, val) -> None:
         if not self.head:
@@ -37,36 +37,40 @@ class LinkedList:
             cur = cur.next
 
     def remove(self, key) -> None:
+        if self.head == None:
+            return
+
+        if self.head.key == key:
+            self.head = self.head.next
+            return
+
         cur = self.head
-        prev = None
-
-        while cur:
-            if cur.key == key:
-                if prev is None:
-                    self.head = cur.next
-                else:
-                    prev.next = cur.next
-                return
-
-            prev = cur
+        while cur != None:
+            if cur.next is not None and cur.next.key == key:
+                cur.next = cur.next.next
             cur = cur.next
 
 
+
 class HashTable:
-    def __init__(self, cap=10) -> None:
+    def __init__(self, cap=991) -> None:
         self.cap = cap
         self.buckets = [LinkedList() for _ in range(self.cap)]
 
-    def hash_f(self):
-        pass
+    def hash_f(self, key) -> int:
+        return key % self.cap
 
     def put(self, key: Any, val: Any) -> None:
         if key is None:
             raise ValueError("key can not be None")
-        pass
 
-    def get(self, key) -> Any:
-        pass
+        n = self.hash_f(key)
+        self.buckets[n].add(key, val)
+
+    def get(self, key):
+        n = self.hash_f(key)
+        return self.buckets[n].get(key)
 
     def delete(self, key) -> None:
-        pass
+        n = self.hash_f(key)
+        self.buckets[n].remove(key)
