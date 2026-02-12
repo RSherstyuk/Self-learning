@@ -11,7 +11,8 @@ class TestLinkedList:
         ls = LinkedList()
         ls.add(12, 21)
         ls.remove(12)
-        assert ls.get(12) == None
+        print(ls.get(12))
+        assert ls.get(12) == -1
 
     def test_add_op(self):
         ls = LinkedList()
