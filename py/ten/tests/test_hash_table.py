@@ -17,4 +17,4 @@ class TestHashTable:
         ht = HashTable()
         ht.put(12, 21)
         ht.delete(12)
-        assert ht.get(12) == None
+        assert ht.get(12) == -1
